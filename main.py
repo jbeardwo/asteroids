@@ -4,6 +4,8 @@ from player import Player
 from circleshape import CircleShape
 
 def main():
+    import os
+    os.environ['SDL_VIDEODRIVER'] = 'x11'
     pygame.init()
     clock = pygame.time.Clock()
     dt = 0
@@ -15,6 +17,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0,0,0))
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
